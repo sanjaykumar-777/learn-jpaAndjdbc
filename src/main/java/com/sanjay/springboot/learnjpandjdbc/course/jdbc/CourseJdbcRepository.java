@@ -35,11 +35,11 @@ public class CourseJdbcRepository {
         springJdbcTemplate.update(INSERT_QUERY,course.getId(),course.getName(),course.getAuthor());
     }
 
-    public void deleteById(int id){
+    public void deleteById(long id){
         springJdbcTemplate.update(DELETE_QUERY,id);
     }
 
-    public Course getById(int id){
+    public Course getById(long id){
         //ResultSet - Bean -> RowMapper
         //used to map the table columns back to java bean (Course)
         return springJdbcTemplate.queryForObject(SELECT_QUERY, new BeanPropertyRowMapper<>(Course.class),id);

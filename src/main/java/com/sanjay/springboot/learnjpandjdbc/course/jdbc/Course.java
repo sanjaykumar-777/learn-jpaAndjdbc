@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Course {
     @Id
-    private int id;
+    private long id;
     private String name;
     private String author;
 
@@ -14,17 +14,17 @@ public class Course {
 
     }
 
-    public Course(int id, String name, String author) {
+    public Course(long id, String name, String author) {
         this.id = id;
         this.name = name;
         this.author = author;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

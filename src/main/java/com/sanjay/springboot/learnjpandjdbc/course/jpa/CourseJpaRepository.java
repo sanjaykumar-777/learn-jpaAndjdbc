@@ -2,6 +2,8 @@ package com.sanjay.springboot.learnjpandjdbc.course.jpa;
 
 import com.sanjay.springboot.learnjpandjdbc.course.jdbc.Course;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
@@ -28,12 +30,12 @@ public class CourseJpaRepository {
     }
 
     //select query
-    public Course getById(int id){
+    public Course getById(long id){
         return entityManager.find(Course.class,id);
     }
 
     //delete query
-    public void deleteById(int id){
+    public void deleteById(long id){
         Course course = entityManager.find(Course.class, id);
         entityManager.remove(course);
     }
