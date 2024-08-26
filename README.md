@@ -13,4 +13,5 @@ JPA - Java Persistence Object
 -Just map entities to Tables
 
 Spring JPA
--
+-let's make JPA even more simple
+-Spring will take care of everything
