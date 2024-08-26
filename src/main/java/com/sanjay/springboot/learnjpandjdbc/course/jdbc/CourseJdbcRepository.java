@@ -9,13 +9,26 @@ public class CourseJdbcRepository {
 
     @Autowired
     private JdbcTemplate springJdbcTemplate;
+
+    //insert query
     private static String INSERT_QUERY =
             """
             insert into Courses (id,name,author)
-            Values(1,'learn AWS','Sanjay');       
+            Values(?,?,?);       
             """;
 
-    public void insert(){
-        springJdbcTemplate.update(INSERT_QUERY);
+    //delete query
+    private static String DELETE_QUERY =
+            """
+            delete from Courses where id = ?;
+            
+            """;
+
+    public void insert(Course course){
+        springJdbcTemplate.update(INSERT_QUERY,course.getId(),course.getName(),course.getAuthor());
+    }
+
+    public void delete(int id){
+        springJdbcTemplate.update(DELETE_QUERY,id);
     }
 }
